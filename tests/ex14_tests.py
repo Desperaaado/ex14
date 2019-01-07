@@ -13,6 +13,7 @@ def test_push():
     colors.push('banana')
     colors.push('canada')
     colors.push('duck')
+    colors._invariant()
 
 def test_pop():
     colors = DLList()
@@ -24,6 +25,7 @@ def test_pop():
     assert colors.pop() == 'canada'
     colors.push('duck')
     assert colors.pop() == 'duck'
+    colors._invariant()
 
 def test_remove():
     colors = DLList()
@@ -33,6 +35,7 @@ def test_remove():
     colors.push('canada')
     colors.push('duck')
     assert colors.remove('duck') == 2
+    colors._invariant()
 
 def test_first():
     colors = DLList()
@@ -42,6 +45,7 @@ def test_first():
     colors.push('canada')
     colors.push('duck')
     assert colors.first() == 'apple'
+    colors._invariant()
 
 def test_last():
     colors = DLList()
@@ -51,6 +55,7 @@ def test_last():
     colors.push('canada')
     colors.push('duck')
     assert colors.last() == 'duck'
+    colors._invariant()
 
 def test_get():
     colors = DLList()
@@ -60,6 +65,7 @@ def test_get():
     colors.push('canada')
     colors.push('duck')
     assert colors.get(2) == 'canada'
+    colors._invariant()
 
 def test_count():
     colors = DLList()
@@ -69,6 +75,7 @@ def test_count():
     colors.push('canada')
     colors.push('duck')
     assert colors.count() == 4
+    colors._invariant()
 
 def test_shift():
     colors = DLList()
@@ -79,6 +86,7 @@ def test_shift():
     result = colors.dump('silence')
     answer = ['duck', 'banana', 'apple', 'canada']
     assert result == answer
+    colors._invariant()
 
 def test_unshift():
     colors = DLList()
@@ -89,3 +97,4 @@ def test_unshift():
     result = colors.dump('silence')
     answer = ['banana', 'canada']
     assert result == answer
+    colors._invariant()
