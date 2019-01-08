@@ -112,8 +112,12 @@ class DLList(object):
             return the_list[index]
 
     def count(self):
-        the_list = self.dump('silence')
-        return len(the_list)
+        if self.begin == None:
+            count = 0
+        else:
+            the_list = self.dump('silence')
+            count = len(the_list)
+        return count
 
     def shift(self, obj):
         if not self.begin:
