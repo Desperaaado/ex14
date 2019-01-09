@@ -21,10 +21,10 @@ class DLList(object):
         if not self.begin:
             self.begin = DLLNode(obj, None, None)
             self.end = self.begin
-        # elif self.begin == self.end:
-        #     node = DLLNode(obj, None, self.begin)
-        #     self.end = node
-        #     self.begin.next = node
+        elif self.begin == self.end:
+            node = DLLNode(obj, None, self.begin)
+            self.end = node
+            self.begin.next = node
         else:
             node = self.end
             node.next = DLLNode(obj, None, self.end)
@@ -122,10 +122,10 @@ class DLList(object):
     def shift(self, obj):
         if not self.begin:
             self.begin = self.end = DLLNode(obj, None, None)
-        # elif self.begin == self.end:
-        #     node = DLLNode(obj, self.end, None)
-        #     self.end.prev = node
-        #     self.begin = node
+        elif self.begin == self.end:
+            node = DLLNode(obj, self.begin, None)
+            self.end.prev = node
+            self.begin = node
         else:
             node = DLLNode(obj, self.begin, None)
             self.begin.prev = node
