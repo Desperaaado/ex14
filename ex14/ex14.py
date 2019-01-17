@@ -153,3 +153,34 @@ class DLList(object):
         if self.begin:
             assert self.begin.prev == None, "begin.prev not None."
             assert self.end.next == None, "end.next not None."
+
+    def detach_node(self, node):
+        the_list = self.dump('silence')
+
+        if not(node.value in the_list):
+            print('Not in the list!')
+            return None
+
+        if node == self.end:
+            # only node or last node
+            self.pop()
+        elif node == self.begin:
+            # first node
+            self.unshift()
+        else:
+            # in the middle
+            prev = node.prev
+            nxt = node.next
+            prev.next = nxt
+            nxt.prev = prev
+
+    def find_by_index(self, index):
+        length = self.count()
+        if index >= length or index < 0:
+            return None
+        i = 0
+        node = self.begin
+        while i != index:
+            node = node.next
+            i += 1
+        return node
